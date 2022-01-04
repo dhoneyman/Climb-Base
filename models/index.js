@@ -61,7 +61,7 @@ States.hasMany(Location, {
 
 // ======== LOCATION RELATIONSHIPS ===========
 
-Location.belongsTo(State, {
+Location.belongsTo(States, {
   foreignKey: 'state_id',
   onDelete: 'CASCADE'
 });
