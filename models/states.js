@@ -6,12 +6,12 @@ class States extends Model {
 
 States.init(
     {
-        state: {
-            type: DataTypes.CHAR,
-        },
         id: {
             type: DataTypes.INT, 
             allowNull: false,
+        },
+        state: {
+            type: DataTypes.CHAR,
         },
     }
 );
