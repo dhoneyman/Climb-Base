@@ -25,12 +25,24 @@ Route.init(
       location_id: {
           type: DataTypes.INT,
           allowNull: false,
+          references: {
+            model: 'location',
+            key: 'id',
+          }
       },
       wall_id: {
           type: DataTypes.INT,
+          references: {
+            model: 'wall',
+            key: 'id',
+          }
       },
       user_id: {
           type: DataTypes.CHAR,
+          references: {
+            model: 'user',
+            key: 'id',
+          }
       },
       FA: {
           type: DataTypes.CHAR,

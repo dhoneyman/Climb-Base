@@ -18,6 +18,10 @@ Wall.init(
       location_id: {
         type: DataTypes.INT,
         allowNull: false,
+        references: {
+          model: 'location',
+          key: 'id',
+        }
       },
       height: {
         type: DataTypes.INT

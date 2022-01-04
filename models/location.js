@@ -18,6 +18,10 @@ Location.init(
       
       state_id: { 
           type: DataTypes.INT,
+          references: {
+            model: 'state',
+            key: 'id',
+          }
       },
 
     }
