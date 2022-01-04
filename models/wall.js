@@ -26,6 +26,11 @@ Wall.init(
       height: {
         type: DataTypes.INT
       },
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'wall',
 
 });
       module.exports = Wall;

@@ -7,14 +7,19 @@ class States extends Model {
 States.init(
     {
         id: {
-            type: DataTypes.INT, 
+            type: DataTypes.INT,
             allowNull: false,
         },
         state: {
             type: DataTypes.CHAR,
         },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'state',
     }
 );
 
 
-    module.exports = States; 
+module.exports = States; 

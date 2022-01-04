@@ -47,6 +47,11 @@ Route.init(
       FA: {
           type: DataTypes.CHAR,
       },
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'route',
     }
 );    
 module.exports = Route;
