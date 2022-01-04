@@ -1,238 +1,238 @@
 [
   {
     "id":0,
-    "text":"Alabama"
+    "state":"Alabama"
   },
   {
     "id":1,
-    "text":"Alaska"
+    "state":"Alaska"
   },
   {
     "id":2,
-    "text":"American Samoa"
+    "state":"American Samoa"
   },
   {
     "id":3,
-    "text":"Arizona"
+    "state":"Arizona"
   },
   {
     "id":4,
-    "text":"Arkansas"
+    "state":"Arkansas"
   },
   {
     "id":5,
-    "text":"California"
+    "state":"California"
   },
   {
     "id":6,
-    "text":"Colorado"
+    "state":"Colorado"
   },
   {
     "id":7,
-    "text":"Connecticut"
+    "state":"Connecticut"
   },
   {
     "id":8,
-    "text":"Delaware"
+    "state":"Delaware"
   },
   {
     "id":9,
-    "text":"District Of Columbia"
+    "state":"District Of Columbia"
   },
   {
     "id":10,
-    "text":"Federated States Of Micronesia"
+    "state":"Federated States Of Micronesia"
   },
   {
     "id":11,
-    "text":"Florida"
+    "state":"Florida"
   },
   {
     "id":12,
-    "text":"Georgia"
+    "state":"Georgia"
   },
   {
     "id":13,
-    "text":"Guam"
+    "state":"Guam"
   },
   {
     "id":14,
-    "text":"Hawaii"
+    "state":"Hawaii"
   },
   {
     "id":15,
-    "text":"Idaho"
+    "state":"Idaho"
   },
   {
     "id":16,
-    "text":"Illinois"
+    "state":"Illinois"
   },
   {
     "id":17,
-    "text":"Indiana"
+    "state":"Indiana"
   },
   {
     "id":18,
-    "text":"Iowa"
+    "state":"Iowa"
   },
   {
     "id":19,
-    "text":"Kansas"
+    "state":"Kansas"
   },
   {
     "id":20,
-    "text":"Kentucky"
+    "state":"Kentucky"
   },
   {
     "id":21,
-    "text":"Louisiana"
+    "state":"Louisiana"
   },
   {
     "id":22,
-    "text":"Maine"
+    "state":"Maine"
   },
   {
     "id":23,
-    "text":"Marshall Islands"
+    "state":"Marshall Islands"
   },
   {
     "id":24,
-    "text":"Maryland"
+    "state":"Maryland"
   },
   {
     "id":25,
-    "text":"Massachusetts"
+    "state":"Massachusetts"
   },
   {
     "id":26,
-    "text":"Michigan"
+    "state":"Michigan"
   },
   {
     "id":27,
-    "text":"Minnesota"
+    "state":"Minnesota"
   },
   {
     "id":28,
-    "text":"Mississippi"
+    "state":"Mississippi"
   },
   {
     "id":29,
-    "text":"Missouri"
+    "state":"Missouri"
   },
   {
     "id":30,
-    "text":"Montana"
+    "state":"Montana"
   },
   {
     "id":31,
-    "text":"Nebraska"
+    "state":"Nebraska"
   },
   {
     "id":32,
-    "text":"Nevada"
+    "state":"Nevada"
   },
   {
     "id":33,
-    "text":"New Hampshire"
+    "state":"New Hampshire"
   },
   {
     "id":34,
-    "text":"New Jersey"
+    "state":"New Jersey"
   },
   {
     "id":35,
-    "text":"New Mexico"
+    "state":"New Mexico"
   },
   {
     "id":36,
-    "text":"New York"
+    "state":"New York"
   },
   {
     "id":37,
-    "text":"North Carolina"
+    "state":"North Carolina"
   },
   {
     "id":38,
-    "text":"North Dakota"
+    "state":"North Dakota"
   },
   {
     "id":39,
-    "text":"Northern Mariana Islands"
+    "state":"Northern Mariana Islands"
   },
   {
     "id":40,
-    "text":"Ohio"
+    "state":"Ohio"
   },
   {
     "id":41,
-    "text":"Oklahoma"
+    "state":"Oklahoma"
   },
   {
     "id":42,
-    "text":"Oregon"
+    "state":"Oregon"
   },
   {
     "id":43,
-    "text":"Palau"
+    "state":"Palau"
   },
   {
     "id":44,
-    "text":"Pennsylvania"
+    "state":"Pennsylvania"
   },
   {
     "id":45,
-    "text":"Puerto Rico"
+    "state":"Puerto Rico"
   },
   {
     "id":46,
-    "text":"Rhode Island"
+    "state":"Rhode Island"
   },
   {
     "id":47,
-    "text":"South Carolina"
+    "state":"South Carolina"
   },
   {
     "id":48,
-    "text":"South Dakota"
+    "state":"South Dakota"
   },
   {
     "id":49,
-    "text":"Tennessee"
+    "state":"Tennessee"
   },
   {
     "id":50,
-    "text":"Texas"
+    "state":"Texas"
   },
   {
     "id":51,
-    "text":"Utah"
+    "state":"Utah"
   },
   {
     "id":52,
-    "text":"Vermont"
+    "state":"Vermont"
   },
   {
     "id":53,
-    "text":"Virgin Islands"
+    "state":"Virgin Islands"
   },
   {
     "id":54,
-    "text":"Virginia"
+    "state":"Virginia"
   },
   {
     "id":55,
-    "text":"Washington"
+    "state":"Washington"
   },
   {
     "id":56,
-    "text":"West Virginia"
+    "state":"West Virginia"
   },
   {
     "id":57,
-    "text":"Wisconsin"
+    "state":"Wisconsin"
   },
   {
     "id":58,
-    "text":"Wyoming"
+    "state":"Wyoming"
   }
 ]
