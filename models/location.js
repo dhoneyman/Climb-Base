@@ -3,11 +3,22 @@ const sequelize = require('../config/connection');
 
 class Location extends Model {}
 
-User.init(
+Location.init(
     {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
+      
+      name: { 
+          type: DataTypes.CHAR,
+      },
+      
+      state_id: { 
+          type: DataTypes.INT,
+      },
+
+    }
+  );

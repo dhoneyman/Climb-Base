@@ -1,17 +1,27 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Location extends Model {
+class Wall extends Model {
 }
 
-User.init(
+Wall.init(
     {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
+      name: {
+        type: DataTypes.CHAR        
+      },
+      location_id: {
+        type: DataTypes.INT,
+        allowNull: false,
+      },
+      height: {
+        type: DataTypes.INT
+      },
 
-
-      module.exports = 
+});
+      module.exports = Wall;
