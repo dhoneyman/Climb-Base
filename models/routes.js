@@ -19,9 +19,6 @@ Route.init(
           type: DataTypes.CHAR,
           allowNull: false,
       },
-      rating: {
-          type: DataTypes.INT,
-      },
       location_id: {
           type: DataTypes.INT,
           allowNull: false,
@@ -41,6 +38,13 @@ Route.init(
           type: DataTypes.CHAR,
           references: {
             model: 'user',
+            key: 'id',
+          }
+      },
+      rating_id: {
+          type: DataTypes.CHAR,
+          references: {
+            model: 'rating',
             key: 'id',
           }
       },

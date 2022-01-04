@@ -31,3 +31,5 @@ Location.init(
 
     }
   );
+
+  module.exports = Location;
