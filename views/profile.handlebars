@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Add a new route:</h3>
+
+    <label>Select State</label>
+  <select class="browser-default" id='state-name'>
+    {{#each states as |state|}}
+    <option value="" disabled selected>Choose your option</option>
+    <option value="1">{{state.name}}</option>
+    {{/each}}
+  </select>
+    <label>Select Location</label>
+  <select class="browser-default">
+    <option value="" disabled selected>Choose your option</option>
+  </select>
+    <label>Select Wall</label>
+  <select class="browser-default">
+    {{#each walls as |wall|}}
+    <option value="" disabled selected>Choose your option</option>
+    <option value="1">Add new wall</option>
+    <option value="">{{wall.name}}</option>
+    {{/each}}
+  </select>
+    
+
+  {{#if rating.length}}
+  <div class="col-md-6 project-list">
+    <h3>My Reviews:</h3>
+
+    {{#each ratings as |rating|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/rating/{{rating.id}}">{{rating.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
