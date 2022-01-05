@@ -7,16 +7,17 @@ class Wall extends Model {
 Wall.init(
     {
       id: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
       name: {
-        type: DataTypes.CHAR        
+        type: DataTypes.CHAR,
+        allowNull: false,
       },
       location_id: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'location',
@@ -24,8 +25,10 @@ Wall.init(
         }
       },
       height: {
-        type: DataTypes.INT
+        type: DataTypes.INTEGER
       },
+    },
+    {
       sequelize,
       timestamps: false,
       freezeTableName: true,

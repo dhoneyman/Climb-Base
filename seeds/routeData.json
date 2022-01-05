@@ -3,30 +3,24 @@
     "id": 0,
     "name": "Fear of Flying",
     "difficulty": "5.10",
-    "location_id": 0,
     "wall_id": 0,
-    "user_id": "residentalien",
-    "review_id": 0,
+    "user_id": 0,
     "FA": "Caswell Orr"
   },
   {
     "id": 1,
     "name": "Hair of the Dog",
     "difficulty": "5.9+",
-    "location_id": 1,
     "wall_id": 1,
-    "user_id": "seabass",
-    "review_id": 1,
+    "user_id": 1,
     "FA": "Charlie Stedman"
   },
   {
     "id": 2,
     "name": "Central Pillar of Frenzy",
     "difficulty": "5.9",
-    "location_id": 2,
     "wall_id": 2,
-    "user_id": "honeybunchesofoats",
-    "review_id": 2,
+    "user_id": 2,
     "FA": "Dylan Honeyman"
   }
 ]

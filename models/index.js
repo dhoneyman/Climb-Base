@@ -1,67 +1,70 @@
 const User = require('./User');
 const Location = require('./Location');
-const Ratings = require('./Ratings');
-const Routes = require('./Routes');
-const States = require('./States');
+const Rating = require('./Rating');
+const Route = require('./Route');
+const State = require('./State');
 const Wall = require('./Wall');
 
 
 // ======= ROUTES RELATIONSHIPS =======
 
-Routes.hasOne(Location, {
-  foreignKey: 'location_id',
-  onDelete: 'CASCADE'
-});
+// Route.belongsTo(Location, {
+//   foreignKey: 'location_id',
+//   onDelete: 'CASCADE'
+// });
 
-Routes.belongsTo(Wall, {
+Route.belongsTo(Wall, {
   foreignKey: 'wall_id',
   onDelete: 'CASCADE'
 });
 
-Routes.hasMany(Ratings, {
+Route.hasMany(Rating, {
   foreignKey: 'rating_id',
   onDelete: 'CASCADE'
 });
 
-Routes.hasMany(User, {
+
+//NOT WORKING BUT SHOULD BE!!!
+
+Route.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-// ======== RATINGS RELATIONSHIPS =======
+// // ======== RATINGS RELATIONSHIPS =======
 
-Ratings.belongsTo(Routes, {
+Rating.belongsTo(Route, {
   foreignKey: 'route_id',
   onDelete: 'CASCADE'
 });
 
-Ratings.belongsTo(User, {
+Rating.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-// ========= WALL REALTIONSHIPS ==========
+// // ========= WALL REALTIONSHIPS ==========
 
 Wall.belongsTo(Location, {
   foreignKey: 'location_id',
   onDelete: 'CASCADE'
 });
 
-Wall.hasMany(Routes, {
+Wall.hasMany(Route, {
   foreignKey: 'route_id',
   onDelete: 'CASCADE'
 });
 
-// ========== STATES RELATIONSHIPS ===========
+// // ========== STATES RELATIONSHIPS ===========
 
-States.hasMany(Location, {
+State.hasMany(Location, {
   foreignKey: 'location_id',
   onDelete: 'CASCADE'
 });
 
-// ======== LOCATION RELATIONSHIPS ===========
+// // ======== LOCATION RELATIONSHIPS ===========
 
-Location.belongsTo(States, {
+Location.belongsTo(State, {
   foreignKey: 'state_id',
   onDelete: 'CASCADE'
 });
@@ -73,4 +76,4 @@ Location.hasMany(Wall, {
 
 // ========= EXPORT REALTIONSHIPS ============
 
-module.exports = { User, Location, Ratings, Routes, States, Wall };
+module.exports = { User, Location, Rating, Route, State, Wall };

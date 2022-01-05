@@ -7,12 +7,15 @@ class States extends Model {
 States.init(
     {
         id: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            primaryKey: true,
         },
         state: {
             type: DataTypes.CHAR,
         },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
