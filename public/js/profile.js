@@ -1,8 +1,9 @@
 let stateName = document.querySelector('#state-name');
 
 stateName.addEventListener('change', async event => {
-    const response = await fetch('http://localhost:3001/api/locations/1', {
+    const response = await fetch('/api/location/1', {
         method: 'GET'
       });
     const locations = await response.json()
+    console.log(locations);
 })
