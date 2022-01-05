@@ -24,7 +24,6 @@ Route.hasMany(Rating, {
 });
 
 
-//NOT WORKING BUT SHOULD BE!!!
 
 Route.belongsTo(User, {
   foreignKey: 'user_id',

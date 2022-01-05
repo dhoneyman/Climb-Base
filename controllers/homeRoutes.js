@@ -1,19 +1,30 @@
 const router = require('express').Router();
 const { json } = require('express');
-const { Route, User, Wall, Location } = require('../models');
+const { Route, User, Wall, Location, State } = require('../models');
 const withAuth = require('../utils/auth');
+
+
 
 router.get('/', async (req, res) => {
   try {
+    const stateData = await State.findAll()
+    const states = stateData.map((state) => state.get({ plain: true }));
+    
     const routeData = await Route.findAll()
-  res.render('homepage', {
-    ...routeData,
+    console.log(routeData);
+    const routes = routeData.map((route) => route.get({ plain: true }));
+    
+    res.render('homepage', {
+      states, routes
 });
   }
    catch (err) {
      res.status(500).json(err);
    }
 });
+
+
+
 router.get('/route/:id', async (req, res) => {
   try {
     const routeData = await Route.findByPk(req.params.id, {

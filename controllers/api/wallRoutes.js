@@ -1,19 +1,19 @@
 const router = require('express').Router();
 // const { Project } = require('../../models');
-const { Location } = require('../../models');
+const { Wall } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/:id', async (req, res) => {
   try{
     console.log(req.params.id);
-    const location = await Location.findAll({
+    const wall = await Wall.findAll({
       where:
       {
-        state_id: req.params.id
+        location_id: req.params.id
       }})
-      const locations = location.map((location) => location.get({ plain: true }));
+      const walls = wall.map((wall) => wall.get({ plain: true }));
 
-    res.status(200).json(locations);
+    res.status(200).json(walls);
   } catch (err) {
     res.status(400).json(err.message);
   }
