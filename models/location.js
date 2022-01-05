@@ -18,7 +18,18 @@ Location.init(
       
       state_id: { 
           type: DataTypes.INT,
+          references: {
+            model: 'state',
+            key: 'id',
+          }
       },
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'location',
 
     }
   );
+
+  module.exports = Location;

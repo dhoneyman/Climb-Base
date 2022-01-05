@@ -19,22 +19,43 @@ Route.init(
           type: DataTypes.CHAR,
           allowNull: false,
       },
-      rating: {
-          type: DataTypes.INT,
-      },
       location_id: {
           type: DataTypes.INT,
           allowNull: false,
+          references: {
+            model: 'location',
+            key: 'id',
+          }
       },
       wall_id: {
           type: DataTypes.INT,
+          references: {
+            model: 'wall',
+            key: 'id',
+          }
       },
       user_id: {
           type: DataTypes.CHAR,
+          references: {
+            model: 'user',
+            key: 'id',
+          }
+      },
+      rating_id: {
+          type: DataTypes.CHAR,
+          references: {
+            model: 'rating',
+            key: 'id',
+          }
       },
       FA: {
           type: DataTypes.CHAR,
       },
+      sequelize,
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'route',
     }
 );    
 module.exports = Route;
