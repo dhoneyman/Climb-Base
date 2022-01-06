@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+// ========= SIGN UP / CREATE USER ==============
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -15,6 +18,8 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// ========= LOGIN =============
 
 router.post('/login', async (req, res) => {
   try {
@@ -48,6 +53,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// ============== LOG OUT ====================
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -57,5 +64,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+// ===== EXPORT ROUTE =======
 
 module.exports = router;

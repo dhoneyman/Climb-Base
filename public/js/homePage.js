@@ -1,4 +1,9 @@
+// ========== VARIABLES ===========
 let stateName = document.querySelector('#state-name');
+const routeNames = document.querySelector('#route-names');
+const wallSelect = document.querySelector('#wall-name');
+
+// ============= STATE DROPDOWN ==============
 
 stateName.addEventListener('change', async event => {
   const id = event.target.options[event.target.selectedIndex].value
@@ -21,6 +26,7 @@ stateName.addEventListener('change', async event => {
     }
 })
 
+// ============= LOCATION DROPDOWN ==============
 
 let locationName = document.querySelector('#location-name');
 
@@ -29,9 +35,10 @@ locationName.addEventListener('change', async event => {
     const response = await fetch('/api/wall/' + id, {
         method: 'GET'
       });
-    const walls = await response.json()
-    const wallSelect = document.querySelector('#wall-name');
+    const walls = await response.json();
+    
     wallSelect.innerHTML = '';
+    routeNames.innerHTML = '';
     const option = document.createElement('option');
       option.textContent = 'Select Wall';
       option.value = '0';
@@ -45,7 +52,7 @@ locationName.addEventListener('change', async event => {
 })
 
 
-
+// ============= WALL DROPDOWN ==============
 
 let wallNames = document.querySelector('#wall-name');
 
@@ -56,7 +63,7 @@ wallNames.addEventListener('change', async event => {
       });
     const routes = await response.json()
 console.log(routes);
-    const routeNames = document.querySelector('#route-names');
+    routeNames.innerHTML = '';
     for(let i=0; i < routes.length; i++){
       const par = document.createElement('p');
       par.textContent = routes[i].name;
