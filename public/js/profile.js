@@ -76,3 +76,37 @@ console.log(routes);
       routeNames.appendChild(par);
     }
 })
+
+
+// ADD ROUTE DATA
+let routeCreator = document.querySelector('#route-creation');
+
+routeCreator.addEventListener('submit', async event => {
+    console.log('submitted');
+
+    const locationName = document.querySelector('#location-name').value.trim();
+    const wallName = document.querySelector('#wall-name').value.trim();
+    const routeName = document.querySelector('#route-name').value.trim();
+    const difficulty = document.querySelector('#difficulty').value.trim();
+    const firstAscent = document.querySelector('#first-ascent').value.trim();
+    const wallId = document.querySelector('#wall-name').value.trim();
+    
+    if (routeName && difficulty && firstAscent) {
+        const response = await fetch(`/api/route`, {
+            method: 'POST',
+            body: JSON.stringify({ name: routeName, difficulty: difficulty, wall_id: wallId, FA: firstAscent }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        console.log(response)
+        
+        
+        
+        if (response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert('Failed to create project');
+        }
+    };
+})

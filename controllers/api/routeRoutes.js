@@ -24,18 +24,18 @@ router.get('/:id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
 
   try {
-
+    console.log(req.body)
     const newRoute = await Route.create({
       ...req.body,
       user_id: req.session.user_id,
     });
-
+    
     res.status(200).json(newRoute);
-
+    
     
   } catch (error) {
-
-    res.status(400).json(err);
+console.log(error)
+    res.status(400).json(error);
     
   }
 
