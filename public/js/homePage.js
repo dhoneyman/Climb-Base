@@ -1,5 +1,9 @@
 let stateName = document.querySelector('#state-name');
 
+const routeNames = document.querySelector('#route-names');
+
+const wallSelect = document.querySelector('#wall-name');
+
 stateName.addEventListener('change', async event => {
   const id = event.target.options[event.target.selectedIndex].value
     const response = await fetch('/api/location/' + id, {
@@ -29,9 +33,10 @@ locationName.addEventListener('change', async event => {
     const response = await fetch('/api/wall/' + id, {
         method: 'GET'
       });
-    const walls = await response.json()
-    const wallSelect = document.querySelector('#wall-name');
+    const walls = await response.json();
+    
     wallSelect.innerHTML = '';
+    routeNames.innerHTML = '';
     const option = document.createElement('option');
       option.textContent = 'Select Wall';
       option.value = '0';
@@ -56,7 +61,7 @@ wallNames.addEventListener('change', async event => {
       });
     const routes = await response.json()
 console.log(routes);
-    const routeNames = document.querySelector('#route-names');
+    routeNames.innerHTML = '';
     for(let i=0; i < routes.length; i++){
       const par = document.createElement('p');
       par.textContent = routes[i].name;
