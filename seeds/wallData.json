@@ -16,6 +16,18 @@
     "name": "Cathedral Rock",
     "location_id": 3,
     "height": 6648
+  },
+  {
+    "id": 4,
+    "name": "Lover's Leap",
+    "location_id": 4,
+    "height": 400
+  },
+  {
+    "id": 5,
+    "name": "Dr. Seuss",
+    "location_id": 5,
+    "height": 300
   }
 
 ]
