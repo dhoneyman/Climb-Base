@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Wall, Location, Routes, Ratings, State } = require('../models');
+const { User, Wall, Location, Route, Rating, State } = require('../models');
 
 const userData = require('./userData.json');
 const wallData = require('./wallData.json');
@@ -9,19 +9,20 @@ const ratingData = require('./ratingData.json');
 const stateData = require('./stateData.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
+  
+  const state = await State.bulkCreate(stateData);
+  const location = await Location.bulkCreate(locationData);
+  const wall = await Wall.bulkCreate(wallData);
+  const route = await Route.bulkCreate(routeData);
+  const rating = await Rating.bulkCreate(ratingData);
 
-  for (const route of routeData) {
-    await Route.create({
-      ...route,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  
 
   process.exit(0);
 };

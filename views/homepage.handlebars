@@ -1,0 +1,30 @@
+<div class='row'>
+    <div class='climbing-routes col s12 l8'>
+        {{#each routes as |route| }}
+        <p>{{route.name}}</p>
+        {{/each}}
+        <label>Select State</label>
+  <select class="browser-default" id='state-name'>
+    <option value="" disabled selected>Select State</option>
+    {{#each states as |state|}}
+    <option value='{{state.id}}'>{{state.state}}</option>
+    {{/each}}
+  </select>
+    <label>Select Location</label>
+  <select class="browser-default" id='location-name'>
+    <option value="" disabled selected>Select Location</option>
+  </select>
+    <label>Select Wall</label>
+  <select class="browser-default" id='wall-name'>
+    <option value="" disabled selected>Select Wall</option>
+  </select>
+    </div>
+    <div class='photos col s12 l4'>
+    </div>
+</div>
+
+<div id='route-names'>
+
+</div>
+
+<script src="/js/profile.js"></script>

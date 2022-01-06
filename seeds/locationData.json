@@ -1,16 +1,16 @@
 [
   {
-    "id": 0,
+    "id": 1,
     "name": "Enchanted Rock",
     "state_id": 50
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Red River Gorge",
     "state_id": 20
   },
   {
-    "id": 2,
+    "id": 3,
     "name": "Yosemite Valley",
     "state_id": 5
   }

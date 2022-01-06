@@ -1,4 +1,4 @@
-const { Model, DataTypes, STRING } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Rating extends Model {
@@ -17,7 +17,7 @@ Rating.init(
         allowNull: false,
       },
       rating: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       route_id: {
@@ -29,12 +29,14 @@ Rating.init(
         }
       },
       user_id: {
-        type: DataTypes.CHAR,
+        type: DataTypes.INTEGER,
         references: {
           model: 'user',
           key: 'id',
         }
     },
+},
+{
       sequelize,
       timestamps: false,
       freezeTableName: true,

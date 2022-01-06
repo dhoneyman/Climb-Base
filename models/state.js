@@ -1,18 +1,21 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class States extends Model {
+class State extends Model {
 }
 
-States.init(
+State.init(
     {
         id: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            primaryKey: true,
         },
         state: {
             type: DataTypes.CHAR,
         },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
@@ -22,4 +25,4 @@ States.init(
 );
 
 
-module.exports = States; 
+module.exports = State; 
