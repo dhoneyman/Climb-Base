@@ -1,8 +1,9 @@
+// ========== VARIABLES ===========
 let stateName = document.querySelector('#state-name');
-
 const routeNames = document.querySelector('#route-names');
-
 const wallSelect = document.querySelector('#wall-name');
+
+// ============= STATE DROPDOWN ==============
 
 stateName.addEventListener('change', async event => {
   const id = event.target.options[event.target.selectedIndex].value
@@ -25,6 +26,7 @@ stateName.addEventListener('change', async event => {
     }
 })
 
+// ============= LOCATION DROPDOWN ==============
 
 let locationName = document.querySelector('#location-name');
 
@@ -50,7 +52,7 @@ locationName.addEventListener('change', async event => {
 })
 
 
-
+// ============= WALL DROPDOWN ==============
 
 let wallNames = document.querySelector('#wall-name');
 
