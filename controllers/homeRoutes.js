@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { json } = require('express');
-const { Route, User, Wall, Location, State } = require('../models');
+const { Route, User, Wall, Location, State, Rating } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -11,11 +11,24 @@ router.get('/', async (req, res) => {
     const states = stateData.map((state) => state.get({ plain: true }));
     
     const routeData = await Route.findAll()
-    console.log(routeData);
+    // console.log(routeData);
     const routes = routeData.map((route) => route.get({ plain: true }));
     
-    res.render('homepage', {
-      states, routes
+    const topTenRoutesData = await Rating.findAll({ 
+      include: Route,
+
+
+      // limit: 10 ,
+      // // order: ['DESC']
+      
+      });
+
+      console.log(topTenRoutesData, "=================")
+
+const topten = topTenRoutesData.map((topTenRoute) => topTenRoute.get({ plain: true }));
+   console.log(topten, "=================") 
+  res.render('homepage', {
+      states, routes, topten
 });
   }
    catch (err) {
@@ -29,6 +42,20 @@ router.get('/route/:id', async (req, res) => {
   try {
     const routeData = await Route.findByPk(req.params.id, {
     });
+
+    const tenRoutes = await Route.findAll({ 
+      include: [ 
+        { 
+          model: Rating,
+          attributes: rating,
+        }],  
+
+
+      limit: 10 ,
+      order: 'rating DESC'
+      });
+
+
     const route = routeData.get({ plain: true });
     res.render('route', {
       ...route,
