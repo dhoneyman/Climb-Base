@@ -18,15 +18,15 @@ router.get('/', async (req, res) => {
       include: Route,
 
 
-      // limit: 10 ,
-      // // order: ['DESC']
+      limit: 10,
+      order: [["rating",'DESC']]
       
       });
 
-      console.log(topTenRoutesData, "=================")
+      // console.log(topTenRoutesData, "=================")
 
 const topten = topTenRoutesData.map((topTenRoute) => topTenRoute.get({ plain: true }));
-   console.log(topten, "=================") 
+  //  console.log(topten, "=================") 
   res.render('homepage', {
       states, routes, topten
 });
