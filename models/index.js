@@ -30,12 +30,14 @@ Route.belongsTo(User, {
   onDelete: 'CASCADE'
 });
 
+// ========== USER RELATIONSHIPS =============
+
 User.hasMany(Route, {
   foreignKey: 'route_id',
   onDelete: 'CASCADE'
 
 })
-// // ======== RATINGS RELATIONSHIPS =======
+// // ======== RATINGS RELATIONSHIPS ===========
 
 Rating.belongsTo(Route, {
   foreignKey: 'route_id',
