@@ -3,7 +3,7 @@ const { json } = require('express');
 const { Route, User, Wall, Location, State } = require('../models');
 const withAuth = require('../utils/auth');
 
-
+// ===========  =============
 
 router.get('/', async (req, res) => {
   try {
@@ -37,6 +37,7 @@ router.get('/route/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/location/:id', async (req, res) => {
   try {
     const locationData = await Location.findByPk(req.params.id, {
@@ -95,6 +96,8 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
+// =========  ===========
 
 router.post('/newRoute', async (req, res) => {
   try {
