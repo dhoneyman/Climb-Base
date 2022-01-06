@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { json } = require('express');
-const { Route, User, Wall, Location, State } = require('../models');
+const { Route, User, Wall, Location, State, Rating } = require('../models');
 const withAuth = require('../utils/auth');
 
 // ===========  =============
@@ -23,20 +23,29 @@ router.get('/', async (req, res) => {
    }
 });
 
-
+// ======= LEAVE A REVIEW ROUTE =============
 
 router.get('/route/:id', async (req, res) => {
   try {
     const routeData = await Route.findByPk(req.params.id, {
+      include: [
+        {
+          model: Rating,
+          attributes: ['rating'],
+        },
+      ],
     });
     const route = routeData.get({ plain: true });
     res.render('route', {
       ...route,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// ============== ================
 
 router.get('/location/:id', async (req, res) => {
   try {
