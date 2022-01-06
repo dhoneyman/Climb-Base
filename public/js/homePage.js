@@ -11,12 +11,8 @@ stateName.addEventListener('change', async event => {
     locationSelect.innerHTML = '';
     const option = document.createElement('option');
       option.textContent = 'Select Location';
-      option.value = '1';
+      option.value = '0';
       locationSelect.appendChild(option);
-    const addNewLocation = document.createElement('option');
-      addNewLocation.textContent = '+ add new location +';
-      addNewLocation.value = '2';
-      locationSelect.appendChild(addNewLocation);
     for(let i=0; i < locations.length; i++){
       const option = document.createElement('option');
       option.textContent = locations[i].name;
@@ -40,15 +36,6 @@ locationName.addEventListener('change', async event => {
       option.textContent = 'Select Wall';
       option.value = '0';
       wallSelect.appendChild(option);
-      const addNewWall = document.createElement('option');
-      addNewWall.textContent = '+ add new wall +';
-      addNewWall.value = '2';
-      wallSelect.appendChild(addNewWall);
-
-
-      if( event.target.value === '+ add new location +'){
-        document.getElementById('new-location').style.display = "none";
-      }
     for(let i=0; i < walls.length; i++){
       const option = document.createElement('option');
       option.textContent = walls[i].name;
