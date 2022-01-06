@@ -62,23 +62,31 @@ router.get('/wall/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
+    const stateData = await State.findAll()
+    const states = stateData.map((state) => state.get({ plain: true }));
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Route }],
+      // include: [{ model: Route }],
     });
+    console.log(userData);
     const user = userData.get({ plain: true });
     res.render('profile', {
+      states,
       ...user,
       logged_in: true
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
+
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -87,6 +95,7 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
 router.post('/newRoute', async (req, res) => {
   try {
     const userData = await User.create(req.body);
