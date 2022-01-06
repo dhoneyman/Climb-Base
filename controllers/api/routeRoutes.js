@@ -3,6 +3,8 @@ const { Router } = require('express');
 const { Route } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// ========== =========
+
 router.get('/:id', async (req, res) => {
   try{
     console.log(req.params.id);
@@ -19,7 +21,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
+// ============== =================
 
 router.post('/', withAuth, async (req, res) => {
 

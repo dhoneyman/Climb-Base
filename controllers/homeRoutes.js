@@ -23,23 +23,29 @@ router.get('/', async (req, res) => {
    }
 });
 
-// ======= LEAVE A REVIEW ROUTE =============
+// =========== REVIEW A ROUTE =============
 
 router.get('/route/:id', async (req, res) => {
+
   try {
+
     const routeData = await Route.findByPk(req.params.id, {
       include: [
         {
           model: Rating,
-          attributes: ['rating'],
+          attributes: ["Rating",'rating'],
         },
       ],
     });
+
+    console.log(routeData);
+
     const route = routeData.get({ plain: true });
+    console.log(route);
     res.render('route', {
       ...route,
-      logged_in: req.session.logged_in
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
