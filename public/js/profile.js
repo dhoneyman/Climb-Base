@@ -10,7 +10,7 @@ stateName.addEventListener('change', async event => {
     const locationSelect = document.querySelector('#location-name');
     locationSelect.innerHTML = '';
     const option = document.createElement('option');
-      option.textContent = 'Choose State';
+      option.textContent = 'Select Location';
       option.value = '0';
       locationSelect.appendChild(option);
     for(let i=0; i < locations.length; i++){
@@ -33,7 +33,7 @@ locationName.addEventListener('change', async event => {
     const wallSelect = document.querySelector('#wall-name');
     wallSelect.innerHTML = '';
     const option = document.createElement('option');
-      option.textContent = 'Choose Location';
+      option.textContent = 'Select Wall';
       option.value = '0';
       wallSelect.appendChild(option);
     for(let i=0; i < walls.length; i++){
