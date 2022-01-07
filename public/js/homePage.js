@@ -64,6 +64,9 @@ wallNames.addEventListener('change', async event => {
     const routes = await response.json()
 console.log(routes);
     routeNames.innerHTML = '';
+    const header = document.createElement('p');
+    header.innerHTML = '<h4>Routes in your selected region:</h4>';
+    routeNames.appendChild(header);
     for(let i=0; i < routes.length; i++){
       const par = document.createElement('p');
       par.innerHTML = `<a href='/route/${routes[i].id}'>${routes[i].name} - ${routes[i].difficulty}</a>`

@@ -7,6 +7,13 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const topTenRoutesData = await Rating.findAll({
+      include: Route,
+      limit: 10,
+      order: [["rating",'DESC']]
+      });
+      const topten = topTenRoutesData.map((topTenRoute) => topTenRoute.get({ plain: true }));
+    
     const stateData = await State.findAll()
     const states = stateData.map((state) => state.get({ plain: true }));
     
@@ -15,7 +22,7 @@ router.get('/', async (req, res) => {
     const routes = routeData.map((route) => route.get({ plain: true }));
     
     res.render('homepage', {
-      states, routes
+      states, routes, topten
 });
   }
    catch (err) {
@@ -30,7 +37,15 @@ router.get('/route/:id', async (req, res) => {
     const routeData = await Route.findByPk(req.params.id, {
       include: { model: Rating }
     });
+
+    // const userData = await User.findAll({
+    //   where: { id: rating : user_id}
+    // });
+    // const users = userData.map((route) => route.get({ plain: true }));
+
+  
     const route = routeData.get({ plain: true });
+    console.log(route);
     res.render('route', {
       ...route,
 
@@ -82,18 +97,24 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const userRatingData = await Rating.findAll({
       where: {user_id: req.session.user_id}
-    })
+    });
 
-    const ratings = userRatingData.map((ratings) => ratings.get({ plai: true }));
+    // const usersWhoRated = await User.findAll({})
+
+    const ratings = userRatingData.map((ratings) => ratings.get({ plain: true }));
     const routes = userRoutesData.map((routes) => routes.get({ plain: true }));
     const user = userData.get({ plain: true });
+    // const users = usersWhoRated.map((routes) => routes.get({ plain: true }));
     res.render('profile', {
+      // users,
       ratings,
       routes,
       states,
       ...user,
       logged_in: true
     });
+
+    console.log(ratings);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
