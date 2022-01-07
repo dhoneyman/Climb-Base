@@ -1,3 +1,5 @@
+<h3>Welcome to Climb Base</h3>
+<h6>Select a region in which you would like to view climbing routes.</h6>
 <div class='row'>
     <div class='climbing-routes col s12 l8'>
         <label>Select State</label>
@@ -21,6 +23,15 @@
 </div>
 
 <div id='route-names'>
+
+</div>
+
+<div>
+  <h4>Top Ten Routes</h4>
+{{#each topten as |topTenRoute|}}
+<blockquote>{{@index}}: <a href='route/{{route.id}}'>{{route.name}}</a> -
+   {{get_emoji rating}} </blockquote>
+{{/each}}
 
 </div>
 

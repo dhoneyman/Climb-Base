@@ -1,21 +1,29 @@
 const router = require('express').Router();
 const { json } = require('express');
-const { Route, User, Wall, Location, State } = require('../models');
+const { Route, User, Wall, Location, State, Rating } = require('../models');
 const withAuth = require('../utils/auth');
 
 // ===========  =============
 
 router.get('/', async (req, res) => {
   try {
+    const routeData = await Route.findAll()
+    const topTenRoutesData = await Rating.findAll({
+      include: Route,
+      limit: 10,
+      order: [["rating",'DESC']]
+      });
+      const topten = topTenRoutesData.map((topTenRoute) => topTenRoute.get({ plain: true }));
+    
     const stateData = await State.findAll()
     const states = stateData.map((state) => state.get({ plain: true }));
     
-    const routeData = await Route.findAll()
     console.log(routeData);
     const routes = routeData.map((route) => route.get({ plain: true }));
     
     res.render('homepage', {
-      states, routes
+      states, routes,
+       topten
 });
   }
    catch (err) {
@@ -28,10 +36,20 @@ router.get('/', async (req, res) => {
 router.get('/route/:id', async (req, res) => {
   try {
     const routeData = await Route.findByPk(req.params.id, {
+      include: { model: Rating }
     });
+
+    // const userData = await User.findAll({
+    //   where: { id: rating : user_id}
+    // });
+    // const users = userData.map((route) => route.get({ plain: true }));
+
+  
     const route = routeData.get({ plain: true });
+    console.log(route);
     res.render('route', {
       ...route,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -72,15 +90,32 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [{ model: Route }],
     });
-    console.log(userData);
+
+    const userRoutesData = await Route.findAll({
+      where: {user_id: req.session.user_id}
+    });
+
+    const userRatingData = await Rating.findAll({
+      where: {user_id: req.session.user_id}
+    });
+
+    // const usersWhoRated = await User.findAll({})
+
+    const ratings = userRatingData.map((ratings) => ratings.get({ plain: true }));
+    const routes = userRoutesData.map((routes) => routes.get({ plain: true }));
     const user = userData.get({ plain: true });
+    // const users = usersWhoRated.map((routes) => routes.get({ plain: true }));
     res.render('profile', {
+      // users,
+      ratings,
+      routes,
       states,
       ...user,
       logged_in: true
     });
+
+    console.log(ratings);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

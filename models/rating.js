@@ -19,6 +19,7 @@ Rating.init(
       rating: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 0,
       },
       route_id: {
         type: DataTypes.INTEGER,
