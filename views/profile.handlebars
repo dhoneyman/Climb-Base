@@ -81,6 +81,26 @@
     {{/each}}
   </div>
   {{/if}}
+
+
+  {{#if routes.length}}
+  <div class="col-md-6 project-list">
+    <h3>My Reviews:</h3>
+
+    {{#each routes as |route|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/route/{{route.id}}">{{route.name}}</a></h4>
+      </div>
+      {{!-- <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{route.id}}">DELETE</button>
+      </div> --}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+
 </div>
 
 <script src="./js/profile.js"></script>

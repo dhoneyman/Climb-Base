@@ -66,7 +66,10 @@ console.log(routes);
     routeNames.innerHTML = '';
     for(let i=0; i < routes.length; i++){
       const par = document.createElement('p');
-      par.textContent = routes[i].name;
+      par.innerHTML = `<a href='/route/${routes[i].id}'>${routes[i].name}</a>`
+      // let linkedPar = `<a href='/route/${routes[i].id}'>${par}</a>`
+      // let newPar = document.createElement('p');
+      // newPar.innerHTML = linkedPar;
       routeNames.appendChild(par);
     }
 })

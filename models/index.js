@@ -19,7 +19,7 @@ Route.belongsTo(Wall, {
 });
 
 Route.hasMany(Rating, {
-  foreignKey: 'rating_id',
+  foreignKey: 'route_id',
   onDelete: 'CASCADE'
 });
 

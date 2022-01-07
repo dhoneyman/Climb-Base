@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { json } = require('express');
-const { Route, User, Wall, Location, State } = require('../models');
+const { Route, User, Wall, Location, State, Rating } = require('../models');
 const withAuth = require('../utils/auth');
 
 // ===========  =============
@@ -28,10 +28,12 @@ router.get('/', async (req, res) => {
 router.get('/route/:id', async (req, res) => {
   try {
     const routeData = await Route.findByPk(req.params.id, {
+      include: { model: Rating }
     });
     const route = routeData.get({ plain: true });
     res.render('route', {
       ...route,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -72,11 +74,16 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [{ model: Route }],
     });
-    console.log(userData);
+
+    const userRoutesData = await Route.findAll({
+      where: {user_id: req.session.user_id}
+    });
+
+    const routes = userRoutesData.map((routes) => routes.get({ plain: true }));
     const user = userData.get({ plain: true });
     res.render('profile', {
+      routes,
       states,
       ...user,
       logged_in: true

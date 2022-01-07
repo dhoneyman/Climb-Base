@@ -2,17 +2,25 @@
 
   <div class="text-center">
 
-    <h2>{{route.name}}</h2>
+    <h2>{{name}}</h2>
     <p>{{rating.rating}}</p>
-    <p>First Ascent by {{route.FA}}</p>
+    <p>First Ascent by {{FA}}</p>
 
-    <textarea placeholder="Leave a Review!"></textarea>
+    <div>
+      {{#each ratings as |rating|}}
+      <p>{{rating.review}}</p>
+      {{/each}}
+    </div>
+
+    <textarea id='new-comment' placeholder="Leave a Review!"></textarea>
 
     <div class="form-group">
-      <button class="btn btn-primary" type="submit">Submit</button>
+      <button class="btn btn-primary" type="button" id='comment-btn'>Submit</button>
     </div>
 
   </div>
 
 </div>
+
+<script src="/js/comment.js"></script>
 
