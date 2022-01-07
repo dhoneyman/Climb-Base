@@ -7,6 +7,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const routeData = await Route.findAll()
     const topTenRoutesData = await Rating.findAll({
       include: Route,
       limit: 10,
@@ -17,12 +18,12 @@ router.get('/', async (req, res) => {
     const stateData = await State.findAll()
     const states = stateData.map((state) => state.get({ plain: true }));
     
-    const routeData = await Route.findAll()
     console.log(routeData);
     const routes = routeData.map((route) => route.get({ plain: true }));
     
     res.render('homepage', {
-      states, routes, topten
+      states, routes,
+       topten
 });
   }
    catch (err) {

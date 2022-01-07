@@ -17,9 +17,10 @@ router.get('/:id', async (req, res) => {
       console.log(user)
 
       const routes = route.map((route) => route.get({ plain: true }));
-      // console.log(routes);
 
-    res.status(200).json(routes,user);
+      console.log(routes);
+
+    res.status(200).json(routes);
   } catch (err) {
     res.status(400).json(err.message);
   }

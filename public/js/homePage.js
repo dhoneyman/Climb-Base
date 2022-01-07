@@ -57,6 +57,7 @@ locationName.addEventListener('change', async event => {
 let wallNames = document.querySelector('#wall-name');
 
 wallNames.addEventListener('change', async event => {
+  console.log('help');
   const id = event.target.options[event.target.selectedIndex].value
     const response = await fetch('/api/route/' + id, {
         method: 'GET'

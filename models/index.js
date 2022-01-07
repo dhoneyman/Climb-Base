@@ -1,9 +1,9 @@
-const User = require('./User');
-const Location = require('./Location');
-const Rating = require('./Rating');
-const Route = require('./Route');
-const State = require('./State');
-const Wall = require('./Wall');
+const User = require('./user');
+const Location = require('./location');
+const Rating = require('./rating');
+const Route = require('./route');
+const State = require('./state');
+const Wall = require('./wall');
 
 
 // ======= ROUTES RELATIONSHIPS =======
