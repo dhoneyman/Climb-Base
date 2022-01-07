@@ -80,9 +80,15 @@ router.get('/profile', withAuth, async (req, res) => {
       where: {user_id: req.session.user_id}
     });
 
+    const userRatingData = await Rating.findAll({
+      where: {user_id: req.session.user_id}
+    })
+
+    const ratings = userRatingData.map((ratings) => ratings.get({ plai: true }));
     const routes = userRoutesData.map((routes) => routes.get({ plain: true }));
     const user = userData.get({ plain: true });
     res.render('profile', {
+      ratings,
       routes,
       states,
       ...user,

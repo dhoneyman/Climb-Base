@@ -85,12 +85,12 @@
 
   {{#if routes.length}}
   <div class="col-md-6 project-list">
-    <h3>My Reviews:</h3>
+    <h3>My Submitted Routes:</h3>
 
     {{#each routes as |route|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/route/{{route.id}}">{{route.name}}</a></h4>
+        <h6><a href="/route/{{route.id}}">{{route.name}} {{route.difficulty}}</a></h6>
       </div>
       {{!-- <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{route.id}}">DELETE</button>
@@ -100,6 +100,19 @@
   </div>
   {{/if}}
 
+  {{#if ratings.length}}
+  <div class="col-md-6 project-list">
+    <h3>My Submitted Ratings:</h3>
+
+    {{#each ratings as |rating|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h6><a href="/route/{{rating.route_id}}">{{rating.review}} - {{rating.rating}}</a></h6>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
 
 </div>
 
