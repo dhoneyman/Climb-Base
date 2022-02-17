@@ -14,11 +14,15 @@ reviews and ratings on all climbs.
 
 <a href="#contributing">Contributing</a>
 
+<a href="#Screen-Shots">Deployed Application</a>
+
 <a href="#Deployed-Application">Deployed Application</a>
 
 ## Description
 This application is created for users to have a place to share and voice their own opinions about their favorite climbs. We believe that giving users 
 the platform to provide this data and engage with their community is the best thing that we, as fellow members of the community, can do for the community.
+
+The database is structured such that routes are at walls, walls are at locations and locations are within states.
 
 ## Installation
 Devependencies include SQL, MySQL, Handlebars, Express and more. All dependencies listed in package.json. 
@@ -37,6 +41,11 @@ Our GitHub Profiles: Dylan Honeyman, Caswell Orr and Charlie Stedman (respective
 <a href="https://github.com/caswellorr">Caswell Orr GitHub Profile Link</a>
 
 <a href="https://github.com/cbs9646">Charlie Stedman GitHub Profile Link</a>
+
+## Screen-Shots
+
+![](./public/assets/ss1.png)
+![](./public/assets/ss2.png)
 
 ## Deployed-Application
 
